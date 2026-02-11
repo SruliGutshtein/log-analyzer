@@ -15,3 +15,8 @@ def identifying_large_sizes(packets):
     """פונקציה שעוברת על רשימה וממיינת את אלו עם גודל חשוד לרשימה חדשה"""
     large_size = [packet for packet in packets if is_large_size(packet[-1])]
     return large_size
+
+def add_size_tag(packets):
+    """פונקציה שעוברת על רשימה ועושה רשימה חדששה עם תיוג אם הגודל חשוד"""
+    size_tag = [packet + ["LARGE"] if is_large_size(packet[-1]) else packet + ["NORMAL"] for packet in packets]
+    return size_tag
