@@ -1,4 +1,4 @@
-from config import INTERNAL_IP, SENSITIVE_PORTS
+from config import INTERNAL_IP, SENSITIVE_PORTS, NORMAL_SIZE
 
 
 def is_external_ip(ip):
@@ -8,3 +8,7 @@ def is_external_ip(ip):
 def is_sensitive_port(port):
        """פונקציה שבודקת אם כתובת port הוא רגיש"""
        return port in SENSITIVE_PORTS
+
+def is_large_size(size):
+       """פונקציה שבודקת אם הגודל הוא חשוד"""
+       return int(size) > NORMAL_SIZE
