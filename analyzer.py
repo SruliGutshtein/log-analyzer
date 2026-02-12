@@ -20,3 +20,8 @@ def add_size_tag(packets):
     """פונקציה שעוברת על רשימה ועושה רשימה חדששה עם תיוג אם הגודל חשוד"""
     size_tag = [packet + ["LARGE"] if is_large_size(packet[-1]) else packet + ["NORMAL"] for packet in packets]
     return size_tag
+
+def counting_requests_by_ip(packets):
+    """פונקציה שמקבלת את הנתונים ומחזירה מילון: כתובת IP מקור ומספר הפניות שלה"""
+    list_ip = [x[1] for x in packets]
+    return {k: list_ip.count(k) for k in {packet[1] for packet in packets}}
