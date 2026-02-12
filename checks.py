@@ -9,7 +9,7 @@ def is_sensitive_port(port):
        """פונקציה שבודקת אם כתובת port הוא רגיש"""
        return port in SENSITIVE_PORTS
 
-def is_large_size(size):
+def is_large_packet(size):
        """פונקציה שבודקת אם הגודל הוא חשוד"""
        return int(size) > NORMAL_SIZE
 
