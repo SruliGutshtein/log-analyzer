@@ -25,3 +25,7 @@ def counting_requests_by_ip(packets):
     """פונקציה שמקבלת את הנתונים ומחזירה מילון: כתובת IP מקור ומספר הפניות שלה"""
     list_ip = [x[1] for x in packets]
     return {k: list_ip.count(k) for k in {packet[1] for packet in packets}}
+
+def port_to_protocol_mapping(packets):
+    """פונקציה שמקבלת את הנתונים ומחזירה מילון: מספר פורט ושם הפרוטוקול"""
+    return {port[3]: port[4] for port in packets}
