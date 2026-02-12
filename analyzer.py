@@ -41,3 +41,8 @@ def ip_suspicion_details(packets):
                 + (["LARGE_PACKET"] if is_large_packet(packet[-1]) else [])
                 + (["NIGHT_ACTIVITY"] if is_night_activity(packet[0][-8:-6]) else []))})
         for ip in set_ips}
+
+def suspicion_dictionary_filtering(suspicion_dict):
+    """פונקציה שמקבלת את מילון החשדות
+    ומחזירה מילון חדש רק עם כתובות שיש להן לפחות 2 סוגי חשדות"""
+    return {ip: suspicions for ip, suspicions in suspicion_dict.items() if len(suspicions) >= 2}
